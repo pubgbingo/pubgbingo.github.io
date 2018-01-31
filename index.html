@@ -1,0 +1,94 @@
+<script src="goals.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css" />
+<style>
+    .checked {
+        background-color: rgba(255, 150, 170, 0.2);
+        background-image: url(https://upload.wikimedia.org/wikipedia/commons/e/e2/RedX.svg);
+        background-size: 100% 100%;
+    }
+    .square {
+        height: 140px;
+        border-color: black;
+        border-width: 1px;
+        border-style: none solid solid none;
+        justify-content: center;
+    }
+    .square:first-child {
+        border-style: none solid solid solid;
+    }
+    *:first-child>.square {
+        border-style: solid none solid solid;
+    }
+    *:first-child>.square:last-child {
+        border-style: solid solid solid solid;
+    }
+    .square span {
+    }
+</style>
+
+<div class='container-fluid'>
+    <div class='row'>
+        <div class='col-sm-8 offset-sm-2'><h1>Your Bingo Card</h1></div>
+    </div>
+    <div class='row'>
+        <div class='col-sm-2'></div>
+        <div class='col-sm-8'>
+            <div class='container-fluid'>
+                <div class='row d-flex align-items-center h100'>
+                    <div class='col-sm square d-flex align-items-center'><span class="align-middle"></span></div>
+                    <div class='col-sm square d-flex align-items-center'><span class="align-middle"></span></div>
+                    <div class='col-sm square d-flex align-items-center'><span class="align-middle"></span></div>
+                    <div class='col-sm square d-flex align-items-center'><span class="align-middle"></span></div>
+                    <div class='col-sm square d-flex align-items-center'><span class="align-middle"></span></div>
+                </div>
+                <div class='row'>
+                    <div class='col-sm square d-flex align-items-center'><span class="align-middle"></span></div>
+                    <div class='col-sm square d-flex align-items-center'><span class="align-middle"></span></div>
+                    <div class='col-sm square d-flex align-items-center'><span class="align-middle"></span></div>
+                    <div class='col-sm square d-flex align-items-center'><span class="align-middle"></span></div>
+                    <div class='col-sm square d-flex align-items-center'><span class="align-middle"></span></div>
+                </div>
+                <div class='row'>
+                    <div class='col-sm square d-flex align-items-center'><span class="align-middle"></span></div>
+                    <div class='col-sm square d-flex align-items-center'><span class="align-middle"></span></div>
+                    <div class='col-sm square d-flex align-items-center'><span class="align-middle"></span></div>
+                    <div class='col-sm square d-flex align-items-center'><span class="align-middle"></span></div>
+                    <div class='col-sm square d-flex align-items-center'><span class="align-middle"></span></div>
+                </div>
+                <div class='row'>
+                    <div class='col-sm square d-flex align-items-center'><span class="align-middle"></span></div>
+                    <div class='col-sm square d-flex align-items-center'><span class="align-middle"></span></div>
+                    <div class='col-sm square d-flex align-items-center'><span class="align-middle"></span></div>
+                    <div class='col-sm square d-flex align-items-center'><span class="align-middle"></span></div>
+                    <div class='col-sm square d-flex align-items-center'><span class="align-middle"></span></div>
+                </div>
+                <div class='row'>
+                    <div class='col-sm square d-flex align-items-center'><span class="align-middle"></span></div>
+                    <div class='col-sm square d-flex align-items-center'><span class="align-middle"></span></div>
+                    <div class='col-sm square d-flex align-items-center'><span class="align-middle"></span></div>
+                    <div class='col-sm square d-flex align-items-center'><span class="align-middle"></span></div>
+                    <div class='col-sm square d-flex align-items-center'><span class="align-middle"></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function() {
+        var squares = document.querySelectorAll('.square span');
+        for (var i = 0; i < squares.length; i++) {
+            
+            squares[i].innerText = goals[Math.trunc(Math.random() * goals.length)];
+        }
+        squares = document.querySelectorAll('.square');
+        for (var i = 0; i < squares.length; i++) {
+            (function() {
+                var me = squares[i];
+                me.onclick = function(e) {
+                   me.classList.toggle('checked');
+                };
+            })();
+        }
+    })();
+</script>
